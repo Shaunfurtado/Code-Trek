@@ -4,6 +4,7 @@ import FileSync from 'lowdb/adapters/FileSync';
 import shortid from 'shortid';
 import cors from 'cors';
 import process from 'process';
+import bodyParser from 'body-parser';
 
 const adapter = new FileSync('db.json');
 const db = low(adapter);
@@ -12,6 +13,7 @@ db.defaults({ problems: [] }).write();
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/problems', (req, res) => {
