@@ -21,7 +21,7 @@ const Form = ({ handleSubmit }) => {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="card w-96 bg-neutral text-neutral-content center">
+      <div className="card  w-96 bg-neutral text-neutral-content center">
         <form onSubmit={handleSubmit}>
           <div className="card-body items-center text-center">
             <h2 className="card-title">Code Post</h2>
@@ -36,11 +36,20 @@ const Form = ({ handleSubmit }) => {
                 onChange={handleChange}
               />
             </div>
-            {/* ... other input fields */}
+            <div className="form-control w-full max-w-xs">
+              <input
+                type="text"
+                name="problemName"
+                placeholder="Problem Name"
+                className="input input-bordered w-full max-w-xs"
+                value={formData.problemName}
+                onChange={handleChange}
+              />
+            </div>
             <div className="form-control w-full max-w-xs">
               <select
                 name="platformName"
-                className="input input-bordered w-full max-w-xs"
+                className="select select-bordered w-full max-w-xs"
                 value={formData.platformName}
                 onChange={handleChange}
               >
@@ -65,7 +74,7 @@ const Form = ({ handleSubmit }) => {
               <textarea
                 name="problemStatement"
                 placeholder="Problem Statement"
-                className="textarea textarea-bordered w-full max-w-xs"
+                className="textarea textarea-lg textarea-bordered w-full max-w-xs"
                 value={formData.problemStatement}
                 onChange={handleChange}
               />
@@ -74,7 +83,7 @@ const Form = ({ handleSubmit }) => {
               <textarea
                 name="solution"
                 placeholder="Solution"
-                className="textarea textarea-bordered w-full max-w-xs"
+                className="textarea textarea-lg textarea-bordered w-full max-w-xs"
                 value={formData.solution}
                 onChange={handleChange}
               />
