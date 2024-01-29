@@ -7,11 +7,6 @@ const table = () => {
         {/* head */}
         <thead>
           <tr>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
             <th>Problem </th>
             <th>Date</th>
             <th>Platform</th>
@@ -22,11 +17,6 @@ const table = () => {
         </thead>
         <tbody>
           <tr>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
             <td>
               <div className="flex items-center gap-3">
                 <div>
@@ -41,8 +31,18 @@ const table = () => {
             </td>
             <td>Purple</td>
             <td>
-              <a className="link link-primary link-hover">Link</a>
+              <a className="link link-primary link-hover">
+                {/* {platformName === "Codeforces"
+                  ? "🚀"
+                  : platformName === "GeeksforGeeks"
+                  ? "👓"
+                  : platformName === "Leetcode"
+                  ? "🐱‍👤"
+                  : ""} */}
+                Link
+              </a>
             </td>
+
             <td>
               <label htmlFor="my_modal_8" className="btn">
                 statement

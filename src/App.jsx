@@ -10,7 +10,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Table />} />
           <Route path="/form" element={<Form />} />
-          {/* Add more routes as needed */}
         </Routes>
         <Footer />
       </div>
