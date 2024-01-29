@@ -5,15 +5,12 @@ const Table = () => {
   const [problems, setProblems] = useState([]);
 
   useEffect(() => {
+    // Fetch problems from the server
     axios
-      .get("http://localhost:5173/problems")
+      .get("http://localhost:5173/")
       .then((response) => {
-        // Check if the response is an object (JSON data)
-        if (typeof response.data === "object") {
-          setProblems(response.data.problems);
-        } else {
-          console.error("Unexpected server response:", response.data);
-        }
+        console.log(response.data); // Log the response data
+        setProblems(response.data.problems);
       })
       .catch((error) => {
         console.error("Error fetching problems:", error);
