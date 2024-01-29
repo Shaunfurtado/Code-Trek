@@ -4,7 +4,6 @@ import FileSync from 'lowdb/adapters/FileSync';
 import shortid from 'shortid';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import process from 'process';
 
 const adapter = new FileSync('db.json');
 const db = low(adapter);
@@ -12,8 +11,10 @@ const db = low(adapter);
 db.defaults({ problems: [] }).write();
 
 const app = express();
+const port = 5173;
+
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.json());
 
 // Fetch all problems
@@ -28,6 +29,7 @@ app.post('/problems', (req, res) => {
   problem.id = shortid.generate();
   db.get('problems').push(problem).write();
   res.json(problem);
+  res.status(200).json({ message: 'Problem submitted successfully!' });
 });
 
 // Update a problem
@@ -42,5 +44,6 @@ app.delete('/problems/:id', (req, res) => {
   res.json({ id: req.params.id });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

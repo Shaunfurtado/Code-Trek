@@ -1,0 +1,35 @@
+{
+    "problems": [
+      {
+        "postId": 1,
+        "problemNumber": "ABC123",
+        "problemName": "Example Problem 1",
+        "solvedDate": "2024-01-31",
+        "platformName": "Codeforces",
+        "problemLink": "https://codeforces.com/problemset/problem/123/A",
+        "problemStatement": "This is the statement for Example Problem 1.",
+        "solution": "Here goes the solution for Example Problem 1."
+      },
+      {
+        "postId": 2,
+        "problemNumber": "GFG456",
+        "problemName": "Example Problem 2",
+        "solvedDate": "2024-02-01",
+        "platformName": "GeeksforGeeks",
+        "problemLink": "https://www.geeksforgeeks.org/example-problem-2",
+        "problemStatement": "This is the statement for Example Problem 2.",
+        "solution": "Here goes the solution for Example Problem 2."
+      },
+      {
+        "postId": 3,
+        "problemNumber": "LC789",
+        "problemName": "Example Problem 3",
+        "solvedDate": "2024-02-02",
+        "platformName": "Leetcode",
+        "problemLink": "https://leetcode.com/problems/example-problem-3",
+        "problemStatement": "This is the statement for Example Problem 3.",
+        "solution": "Here goes the solution for Example Problem 3."
+      }
+    ]
+  }
+  

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 const platforms = ["Codeforces", "GeeksforGeeks", "Leetcode"];
 
 const Form = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
-    postId: 0,
     problemNumber: "",
     problemName: "",
     solvedDate: "",
@@ -19,10 +19,38 @@ const Form = ({ handleSubmit }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    // Send the form data to the server
+    axios
+      .post("http://localhost:5173/problems", formData)
+      .then((response) => {
+        // Clear the form after successful submission
+        setFormData({
+          problemNumber: "",
+          problemName: "",
+          solvedDate: "",
+          platformName: "",
+          problemLink: "",
+          problemStatement: "",
+          solution: "",
+        });
+
+        // Call the parent handleSubmit function if provided
+        if (handleSubmit) {
+          handleSubmit(response.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      });
+  };
+
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="card  w-96 bg-neutral text-neutral-content center">
-        <form onSubmit={handleSubmit}>
+      <div className="card w-96 bg-neutral text-neutral-content center">
+        <form onSubmit={submitForm}>
           <div className="card-body items-center text-center">
             <h2 className="card-title">Code Post</h2>
             <div className="form-control w-full max-w-xs">
@@ -101,7 +129,7 @@ const Form = ({ handleSubmit }) => {
 };
 
 Form.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func,
 };
 
 export default Form;
