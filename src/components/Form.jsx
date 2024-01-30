@@ -4,11 +4,18 @@ import axios from "axios";
 
 const platforms = ["Codeforces", "GeeksforGeeks", "Leetcode"];
 
+// Mapping of platform names to numbers
+const platformNumberMapping = {
+  Codeforces: 2,
+  GeeksforGeeks: 3,
+  Leetcode: 4,
+};
+
 const Form = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     problemNumber: "",
     problemName: "",
-    solvedDate: "", // Added solvedDate field
+    solvedDate: "",
     platformName: "",
     problemLink: "",
     problemStatement: "",
@@ -22,9 +29,15 @@ const Form = ({ handleSubmit }) => {
   const submitForm = (e) => {
     e.preventDefault();
 
-    // Send the form data to the server
+    // Map platform name to corresponding number
+    const platformNumber = platformNumberMapping[formData.platformName];
+
+    // Send the form data to the server with the platform number
     axios
-      .post("http://localhost:3000/problems", formData)
+      .post("http://localhost:3000/problems", {
+        ...formData,
+        platformNumber,
+      })
       .then((response) => {
         // Clear the form after successful submission
         setFormData({
@@ -74,7 +87,6 @@ const Form = ({ handleSubmit }) => {
               />
             </div>
             <div className="form-control w-full max-w-xs">
-              {/* Added the date input field */}
               <input
                 type="date"
                 name="solvedDate"
@@ -90,6 +102,9 @@ const Form = ({ handleSubmit }) => {
                 value={formData.platformName}
                 onChange={handleChange}
               >
+                <option disabled value="" selected>
+                  Select Platform
+                </option>
                 {platforms.map((platform, index) => (
                   <option key={index} value={platform}>
                     {platform}
