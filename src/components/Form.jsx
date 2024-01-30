@@ -8,7 +8,7 @@ const Form = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({
     problemNumber: "",
     problemName: "",
-    solvedDate: "",
+    solvedDate: "", // Added solvedDate field
     platformName: "",
     problemLink: "",
     problemStatement: "",
@@ -24,7 +24,7 @@ const Form = ({ handleSubmit }) => {
 
     // Send the form data to the server
     axios
-      .post("http://localhost:5173/problems", formData)
+      .post("http://localhost:3000/problems", formData)
       .then((response) => {
         // Clear the form after successful submission
         setFormData({
@@ -54,7 +54,6 @@ const Form = ({ handleSubmit }) => {
           <div className="card-body items-center text-center">
             <h2 className="card-title">Code Post</h2>
             <div className="form-control w-full max-w-xs">
-              <input type="hidden" name="postId" value={formData.postId} />
               <input
                 type="text"
                 name="problemNumber"
@@ -71,6 +70,16 @@ const Form = ({ handleSubmit }) => {
                 placeholder="Problem Name"
                 className="input input-bordered w-full max-w-xs"
                 value={formData.problemName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-control w-full max-w-xs">
+              {/* Added the date input field */}
+              <input
+                type="date"
+                name="solvedDate"
+                className="input input-bordered w-full max-w-xs"
+                value={formData.solvedDate}
                 onChange={handleChange}
               />
             </div>

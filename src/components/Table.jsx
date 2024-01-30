@@ -7,15 +7,16 @@ const Table = () => {
   useEffect(() => {
     // Fetch problems from the server
     axios
-      .get("http://localhost:5173/")
+      .get("http://localhost:3000/problems") // Changed port to 3000
       .then((response) => {
         console.log(response.data); // Log the response data
-        setProblems(response.data.problems);
+        setProblems(response.data);
       })
       .catch((error) => {
         console.error("Error fetching problems:", error);
       });
   }, []);
+
   console.log(problems); // Log the state
 
   return (

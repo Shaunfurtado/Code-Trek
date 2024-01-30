@@ -1,47 +1,84 @@
 import express from 'express';
-import low from 'lowdb';
-import FileSync from 'lowdb/adapters/FileSync';
-import shortid from 'shortid';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-
-const adapter = new FileSync('db.json');
-const db = low(adapter);
-
-db.defaults({ problems: [] }).write();
+import shortid from 'shortid';
 
 const app = express();
-const port = 5173;
+const port = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
+// MongoDB connection string
+const uri = "mongodb+srv://rockfurtadofur:14iTAcjjliMlKbuO@cluster0.zys5toa.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const problemSchema = new mongoose.Schema({
+  problemNumber: String,
+  problemName: String,
+  solvedDate: String,
+  platformName: String,
+  problemLink: String,
+  problemStatement: String,
+  solution: String,
+});
+
+const Problem = mongoose.model('Problem', problemSchema);
+
 // Fetch all problems
-app.get('/problems', (req, res) => {
-  const problems = db.get('problems').value();
-  res.json(problems);
+app.get('/problems', async (req, res) => {
+  try {
+    const problems = await Problem.find();
+    res.json(problems);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 // Create a new problem
-app.post('/problems', (req, res) => {
-  const problem = req.body;
-  problem.id = shortid.generate();
-  db.get('problems').push(problem).write();
-  res.json(problem);
-  res.status(200).json({ message: 'Problem submitted successfully!' });
+app.post('/problems', async (req, res) => {
+  const problemData = req.body;
+  problemData.id = shortid.generate();
+
+  const problem = new Problem(problemData);
+
+  try {
+    await problem.save();
+    res.status(200).json({ problem, message: 'Problem submitted successfully!' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 // Update a problem
-app.put('/problems/:id', (req, res) => {
-  const updatedProblem = db.get('problems').find({ id: req.params.id }).assign(req.body).write();
-  res.json(updatedProblem);
+app.put('/problems/:id', async (req, res) => {
+  try {
+    const updatedProblem = await Problem.findOneAndUpdate(
+      { id: req.params.id },
+      { $set: req.body },
+      { new: true }
+    );
+
+    res.json(updatedProblem);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 // Delete a problem
-app.delete('/problems/:id', (req, res) => {
-  db.get('problems').remove({ id: req.params.id }).write();
-  res.json({ id: req.params.id });
+app.delete('/problems/:id', async (req, res) => {
+  try {
+    await Problem.findOneAndDelete({ id: req.params.id });
+    res.json({ id: req.params.id });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 app.listen(port, () => {
