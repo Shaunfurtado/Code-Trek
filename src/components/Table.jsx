@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CodeforcesLogo from "../assets/Codeforces.colored.svg";
-import GeeksforGeeksLogo from "../assets/geeksforgeeks-svgrepo-com";
+import GeeksforGeeksLogo from "../assets/geeksforgeeks-svgrepo-com.svg";
 import LeetcodeLogo from "../assets/leetcode-svgrepo-com.svg";
 const platforms = ["Codeforces", "GeeksforGeeks", "Leetcode"];
 
 const getPlatformLogo = (platformName) => {
   switch (platformName) {
     case "Codeforces":
-      return <img src={CodeforcesLogo} alt="Codeforces" />;
+      return (
+        <img src={CodeforcesLogo} alt="Codeforces" width="30" height="30" />
+      );
     case "GeeksforGeeks":
-      return <img src={GeeksforGeeksLogo} alt="GeeksforGeeks" />;
+      return (
+        <img
+          src={GeeksforGeeksLogo}
+          alt="GeeksforGeeks"
+          width="30"
+          height="30"
+        />
+      );
     case "Leetcode":
-      return <img src={LeetcodeLogo} alt="Leetcode" />;
+      return <img src={LeetcodeLogo} alt="Leetcode" width="30" height="30" />;
     default:
       return null;
   }
