@@ -31,7 +31,6 @@ const Table = () => {
   const [problems, setProblems] = useState([]);
 
   useEffect(() => {
-    // Fetch problems from the server
     axios
       .get("http://localhost:3000/problems")
       .then((response) => {
@@ -57,8 +56,8 @@ const Table = () => {
         </thead>
         <tbody>
           {Array.isArray(problems) && problems.length > 0 ? (
-            problems.map((problem) => (
-              <tr key={problem.id}>
+            problems.map((problem, index) => (
+              <tr key={problem.id ? problem.id : index}>
                 <td>
                   <div className="flex items-center gap-3">
                     <div>
