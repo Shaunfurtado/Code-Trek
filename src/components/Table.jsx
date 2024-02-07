@@ -82,15 +82,18 @@ const Table = () => {
                   </a>
                 </td>
                 <td>
+                  {/* <div className="flex justify-center px-4 py-16 border-t border-base-300">
+                    {problem.problemStatement}
+                  </div> */}
                   <label
-                    htmlFor={`my_modal_${problem.id}_statement`}
+                    htmlFor={`my_modal_${problem._id}_statement`}
                     className="btn"
                   >
                     Statement
                   </label>
                   <input
                     type="checkbox"
-                    id={`my_modal_${problem.id}_statement`}
+                    id={`my_modal_${problem._id}_statement`}
                     className="modal-toggle"
                   />
                   <div className="modal" role="dialog">
@@ -103,7 +106,7 @@ const Table = () => {
                     </div>
                     <label
                       className="modal-backdrop"
-                      htmlFor={`my_modal_${problem.id}_statement`}
+                      htmlFor={`my_modal_${problem._id}_statement`}
                     >
                       Close
                     </label>
@@ -111,14 +114,14 @@ const Table = () => {
                 </td>
                 <td>
                   <label
-                    htmlFor={`my_modal_${problem.id}_solution`}
+                    htmlFor={`my_modal_${problem._id}_solution`}
                     className="btn"
                   >
                     Code
                   </label>
                   <input
                     type="checkbox"
-                    id={`my_modal_${problem.id}_solution`}
+                    id={`my_modal_${problem._id}_solution`}
                     className="modal-toggle"
                   />
                   <div className="modal" role="dialog">
@@ -131,7 +134,7 @@ const Table = () => {
                     </div>
                     <label
                       className="modal-backdrop"
-                      htmlFor={`my_modal_${problem.id}_solution`}
+                      htmlFor={`my_modal_${problem._id}_solution`}
                     >
                       Close
                     </label>
