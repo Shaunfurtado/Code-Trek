@@ -52,6 +52,7 @@ const Table = () => {
             <th>Link</th>
             <th>Statement</th>
             <th>Solution</th>
+            <th>Quick Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -82,9 +83,6 @@ const Table = () => {
                   </a>
                 </td>
                 <td>
-                  {/* <div className="flex justify-center px-4 py-16 border-t border-base-300">
-                    {problem.problemStatement}
-                  </div> */}
                   <label
                     htmlFor={`my_modal_${problem._id}_statement`}
                     className="btn"
@@ -98,9 +96,9 @@ const Table = () => {
                   />
                   <div className="modal" role="dialog">
                     <div className="modal-box">
-                      <div className="mockup-window border border-base-300">
+                      <div className="mockup-window bg-base-100">
                         <div className="flex justify-center px-4 py-16 border-t border-base-300">
-                          {problem.problemStatement}
+                          <code>{problem.problemStatement}</code>
                         </div>
                       </div>
                     </div>
@@ -126,8 +124,8 @@ const Table = () => {
                   />
                   <div className="modal" role="dialog">
                     <div className="modal-box">
-                      <div className="mockup-code">
-                        <pre>
+                      <div className="mockup-window bg-base-100">
+                        <pre data-prefix=" ">
                           <code>{problem.solution}</code>
                         </pre>
                       </div>
@@ -140,11 +138,39 @@ const Table = () => {
                     </label>
                   </div>
                 </td>
+                <td>
+                  <label
+                    htmlFor={`my_modal_${problem._id}_notes`}
+                    className="btn"
+                  >
+                    Quick Note
+                  </label>
+                  <input
+                    type="checkbox"
+                    id={`my_modal_${problem._id}_notes`}
+                    className="modal-toggle"
+                  />
+                  <div className="modal" role="dialog">
+                    <div className="modal-box">
+                      <div className="mockup-window bg-base-100">
+                        <div className="flex justify-center px-4 py-16 border-t border-base-300">
+                          <code>{problem.quickNote}</code>
+                        </div>
+                      </div>
+                    </div>
+                    <label
+                      className="modal-backdrop"
+                      htmlFor={`my_modal_${problem._id}_notes`}
+                    >
+                      Close
+                    </label>
+                  </div>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="6">No problems available</td>
+              <td colSpan="7">No problems available</td>
             </tr>
           )}
         </tbody>

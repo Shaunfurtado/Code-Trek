@@ -31,7 +31,9 @@ const problemSchema = new mongoose.Schema({
   platformName: String,
   problemLink: String,
   problemStatement: String,
+  quickNote: String,
   solution: String,
+  
 });
 
 const Problem = mongoose.model('Problem', problemSchema);
@@ -89,3 +91,5 @@ app.delete('/problems/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+

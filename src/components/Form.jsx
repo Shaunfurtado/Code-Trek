@@ -19,6 +19,7 @@ const Form = ({ handleSubmit }) => {
     platformName: "",
     problemLink: "",
     problemStatement: "",
+    quickNote: "",
     solution: "",
   });
 
@@ -48,6 +49,7 @@ const Form = ({ handleSubmit }) => {
           problemLink: "",
           problemStatement: "",
           solution: "",
+          quickNote: "", // Ensure quickNote is cleared as well
         });
 
         // Call the parent handleSubmit function if provided
@@ -128,6 +130,15 @@ const Form = ({ handleSubmit }) => {
                 placeholder="Problem Statement"
                 className="textarea textarea-lg textarea-bordered w-full max-w-xs"
                 value={formData.problemStatement}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <textarea
+                name="quickNote"
+                placeholder="Quick Notes"
+                className="textarea textarea-lg textarea-bordered w-full max-w-xs"
+                value={formData.quickNote}
                 onChange={handleChange}
               />
             </div>
