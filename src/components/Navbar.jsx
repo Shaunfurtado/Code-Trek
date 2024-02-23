@@ -63,13 +63,13 @@ const Navbar = () => {
           <Link to="/">Competitive Programming Solutions</Link>
         </a>
       </div>
-      {/* <div className="navbar-end">
-        <Link to="/form">
+      <div className="navbar-end">
+        {/* <Link to="/form">
           <button className="btn btn-ghost">Add New</button>
         </Link>
         <Link to="/modify">
           <button className="btn btn-ghost">Modify</button>
-        </Link>
+        </Link> */}
         <label className="cursor-pointer grid place-items-center">
           <input
             type="checkbox"
@@ -107,7 +107,7 @@ const Navbar = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </label>
-      </div> */}
+      </div>
     </div>
   );
 };
