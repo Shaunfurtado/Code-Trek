@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navbar, Footer, Form } from "./components/index";
-import Table from "./components";
+import { Navbar, Footer, Form, Table } from "./components/index";
+
 import "./App.css";
 
 function App() {
