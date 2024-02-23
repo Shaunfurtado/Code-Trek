@@ -81,12 +81,13 @@ app.put('/problems/:id', async (req, res) => {
 // Delete a problem
 app.delete('/problems/:id', async (req, res) => {
   try {
-    await Problem.findOneAndDelete({ id: req.params.id });
+    await Problem.findByIdAndDelete(req.params.id); // Change to findByIdAndDelete
     res.json({ id: req.params.id });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
