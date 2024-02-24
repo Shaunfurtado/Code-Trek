@@ -17,7 +17,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // MongoDB connection string
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGO_URI;
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
