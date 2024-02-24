@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import shortid from 'shortid';
-import process from 'process';
+// import process from 'process';
 
 const app = express();
 const port = 3000;
@@ -17,7 +17,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // MongoDB connection string
-const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://rockfurtadofur:14iTAcjjliMlKbuO@cluster0.zys5toa.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
