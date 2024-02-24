@@ -19,10 +19,7 @@ dotenv.config();
 // MongoDB connection string
 const uri = process.env.MONGO_URI;
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(uri);
 
 const problemSchema = new mongoose.Schema({
   problemNumber: String,
