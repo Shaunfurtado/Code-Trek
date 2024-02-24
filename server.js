@@ -13,11 +13,11 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 // Load environment variables
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 // MongoDB connection string
-const uri = "mongodb+srv://rockfurtadofur:14iTAcjjliMlKbuO@cluster0.zys5toa.mongodb.net/?retryWrites=true&w=majority";
+const uri = 'mongodb+srv://rockfurtadofur:14iTAcjjliMlKbuO@cluster0.zys5toa.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
