@@ -26,7 +26,7 @@ const getPlatformLogo = (platformName) => {
       return null;
   }
 };
-
+// Fetch all problems
 const Table = () => {
   const [problems, setProblems] = useState([]);
 
