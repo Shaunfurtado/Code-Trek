@@ -32,7 +32,7 @@ const Table = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problems")
+      .get("https://swsssdffsfsssssfjfieubfbcnbjsduf.loca.lt/problems")
       .then((response) => {
         setProblems(response.data);
       })
