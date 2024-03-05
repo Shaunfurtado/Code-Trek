@@ -32,7 +32,7 @@ const Table = () => {
 
   useEffect(() => {
     axios
-      .get("https://swsssdffsfsssssfjfieubfgggbcnbjsduf.loca.lt/problems")
+      .get("https://shaunfurtado.is-a.dev/api-data/test.problems.json")
       .then((response) => {
         setProblems(response.data);
       })
