@@ -1,17 +1,17 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [nightMode, setNightMode] = useState(false);
+  // const [nightMode, setNightMode] = useState(false);
 
-  const handleThemeToggle = () => {
-    setNightMode(!nightMode);
-    if (nightMode) {
-      document.body.classList.add("night");
-    } else {
-      document.body.classList.remove("night");
-    }
-  };
+  // const handleThemeToggle = () => {
+  //   setNightMode(!nightMode);
+  //   if (nightMode) {
+  //     document.body.classList.add("night");
+  //   } else {
+  //     document.body.classList.remove("night");
+  //   }
+  // };
 
   return (
     <div className="navbar bg-base-100">
@@ -70,7 +70,8 @@ const Navbar = () => {
         <Link to="/modify">
           <button className="btn btn-ghost">Modify</button>
         </Link> */}
-        <label className="cursor-pointer grid place-items-center">
+
+        {/* <label className="cursor-pointer grid place-items-center">
           <input
             type="checkbox"
             value="theme2"
@@ -106,7 +107,7 @@ const Navbar = () => {
           >
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
-        </label>
+        </label> */}
       </div>
     </div>
   );

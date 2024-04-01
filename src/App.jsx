@@ -1,5 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navbar, Footer, Form, Table, Modify } from "./components/index";
+import {
+  Navbar,
+  Footer,
+  Form,
+  Table,
+  Modify,
+  // Navbar1,
+} from "./components/index";
 
 import "./App.css";
 
@@ -8,6 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        {/* <Navbar1 /> */}
         <Routes>
           <Route path="/" element={<Table />} />
           <Route path="/form" element={<Form />} />
