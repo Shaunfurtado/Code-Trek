@@ -86,14 +86,14 @@ const Table = () => {
                 </td>
                 <td>
                   <label
-                    htmlFor={`my_modal_${problem._id}_statement`}
+                    htmlFor={`my_modal_${index}_statement`}
                     className="btn"
                   >
                     Statement
                   </label>
                   <input
                     type="checkbox"
-                    id={`my_modal_${problem._id}_statement`}
+                    id={`my_modal_${index}_statement`}
                     className="modal-toggle"
                   />
                   <div className="modal" role="dialog">
@@ -106,22 +106,19 @@ const Table = () => {
                     </div>
                     <label
                       className="modal-backdrop"
-                      htmlFor={`my_modal_${problem._id}_statement`}
+                      htmlFor={`my_modal_${index}_statement`}
                     >
                       Close
                     </label>
                   </div>
                 </td>
                 <td>
-                  <label
-                    htmlFor={`my_modal_${problem._id}_solution`}
-                    className="btn"
-                  >
+                  <label htmlFor={`my_modal_${index}_solution`} className="btn">
                     Code
                   </label>
                   <input
                     type="checkbox"
-                    id={`my_modal_${problem._id}_solution`}
+                    id={`my_modal_${index}_solution`}
                     className="modal-toggle"
                   />
                   <div className="modal" role="dialog">
@@ -134,22 +131,19 @@ const Table = () => {
                     </div>
                     <label
                       className="modal-backdrop"
-                      htmlFor={`my_modal_${problem._id}_solution`}
+                      htmlFor={`my_modal_${index}_solution`}
                     >
                       Close
                     </label>
                   </div>
                 </td>
                 <td>
-                  <label
-                    htmlFor={`my_modal_${problem._id}_notes`}
-                    className="btn"
-                  >
+                  <label htmlFor={`my_modal_${index}_notes`} className="btn">
                     Quick Note
                   </label>
                   <input
                     type="checkbox"
-                    id={`my_modal_${problem._id}_notes`}
+                    id={`my_modal_${index}_notes`}
                     className="modal-toggle"
                   />
                   <div className="modal" role="dialog">
@@ -162,7 +156,7 @@ const Table = () => {
                     </div>
                     <label
                       className="modal-backdrop"
-                      htmlFor={`my_modal_${problem._id}_notes`}
+                      htmlFor={`my_modal_${index}_notes`}
                     >
                       Close
                     </label>
