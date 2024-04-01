@@ -4,6 +4,9 @@ import Form from './Form.jsx';
 import Table from './Cpalgos.jsx';
 import Modify from './modify.jsx';
 import Navbar1 from './Navbar1.jsx';
+import Card from './Card.jsx';
+import CardGrid from './CardGrid.jsx';
+import Dashboard from './Dashboard.jsx';
 
 export {
     Navbar,
@@ -11,5 +14,8 @@ export {
     Form,
     Table,
     Modify,
-    Navbar1
+    Navbar1,
+    Card,
+    CardGrid,
+    Dashboard
 };

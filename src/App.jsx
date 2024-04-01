@@ -5,7 +5,10 @@ import {
   Form,
   Table,
   Modify,
-  // Navbar1,
+  Navbar1,
+  Card,
+  CardGrid,
+  Dashboard,
 } from "./components/index";
 
 import "./App.css";
@@ -15,11 +18,14 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        {/* <Navbar1 /> */}
+        <Navbar1 />
         <Routes>
           <Route path="/" element={<Table />} />
           <Route path="/form" element={<Form />} />
           <Route path="/modify" element={<Modify />} />
+          <Route path="/Card" element={<Card />} />
+          <Route path="/CardGrid" element={<CardGrid />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </div>
