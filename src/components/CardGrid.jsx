@@ -30,7 +30,7 @@ const CardGrid = () => {
             if (index < problems.length) {
               return (
                 <div key={index} className="mx-14 sm:mx-2">
-                  <Card problem={problems[index]} />
+                  <Card problem={problems[index]} index={index} />
                 </div>
               );
             }
