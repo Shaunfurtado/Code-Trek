@@ -19,23 +19,10 @@ const CardGrid = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      {[...Array(Math.ceil(problems.length / 3))].map((_, rowIndex) => (
-        <div
-          key={rowIndex}
-          className="flex justify-center items-center mb-28 sm:mb-0"
-        >
-          {[...Array(3)].map((_, colIndex) => {
-            const index = rowIndex * 3 + colIndex;
-            if (index < problems.length) {
-              return (
-                <div key={index} className="mx-14 sm:mx-2">
-                  <Card problem={problems[index]} index={index} />
-                </div>
-              );
-            }
-            return null;
-          })}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mx-auto max-w-screen-xl">
+      {problems.map((problem, index) => (
+        <div key={index}>
+          <Card problem={problem} index={index} />
         </div>
       ))}
     </div>
