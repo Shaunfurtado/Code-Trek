@@ -11,7 +11,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "https://shaunfurtado.is-a.dev/Static-APIs/api-data/test.problems.json"
+        "http://localhost:3000/problems"
       )
       .then((response) => {
         setProblems(response.data);
