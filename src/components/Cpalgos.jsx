@@ -32,9 +32,9 @@ const Table = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "http://localhost:3000/problems"
-      )
+    .get(
+      "https://shaunfurtado.is-a.dev/Static-APIs/api-data/test.problems.json"
+    )
       .then((response) => {
         setProblems(response.data);
       })
